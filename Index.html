@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChemNamer — Nomenclatura Química</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1><span class="atom-icon">⚛️</span> ChemNamer</h1>
+    <p>Generador de óxidos · Nomenclatura Stock · Sistemática · Tradicional</p>
+    <div class="header-accent"></div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- TABLA PERIÓDICA -->
+  <section class="tabla-section">
+
+    <h2>Tabla Periódica</h2>
+
+    <div class="controles">
+      <div class="campo-busqueda">
+        <input type="text" id="busqueda" placeholder="Buscar por nombre, símbolo o número…">
+      </div>
+      <select id="filtroGrupo">
+        <option value="todos">Todos los grupos</option>
+        <option value="alcalino">Metales alcalinos</option>
+        <option value="alcalinotérreo">Alcalinotérreos</option>
+        <option value="transicion">Metales de transición</option>
+        <option value="metal">Otros metales</option>
+        <option value="metaloide">Metaloides</option>
+        <option value="no-metal">No metales</option>
+        <option value="halógeno">Halógenos</option>
+        <option value="noble">Gases nobles</option>
+        <option value="lantanido">Lantánidos</option>
+        <option value="actinido">Actínidos</option>
+      </select>
+    </div>
+
+    <div id="tablaPeriodica" class="tabla-periodica"></div>
+
+    <!-- Leyenda -->
+    <div class="leyenda">
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#824D79"></div>Alcalinos</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#82784D"></div>Alcalinotérreos</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#4D827F"></div>Transición</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#6a5a8a"></div>Otros metales</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#7a6840"></div>Metaloides</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#3a7070"></div>No metales</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#7a3a72"></div>Halógenos</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#2e5e5e"></div>Gases nobles</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#5a4060"></div>Lantánidos</div>
+      <div class="leyenda-item"><div class="leyenda-dot" style="background:#4a3050"></div>Actínidos</div>
+    </div>
+
+  </section>
+
+  <!-- PANELES LATERALES -->
+  <div class="panel-lateral">
+
+    <!-- INFO ELEMENTO -->
+    <section class="panel-info">
+      <h2>Elemento seleccionado</h2>
+      <div id="infoElemento">
+        <p class="placeholder-msg">⬆ Selecciona un elemento de la tabla.</p>
+      </div>
+    </section>
+
+    <!-- ÓXIDOS -->
+    <section class="panel-oxidos">
+      <h2>Óxidos y Nomenclaturas</h2>
+      <div id="resultadoOxidos">
+        <p class="placeholder-msg">⬆ Selecciona un elemento para ver sus óxidos.</p>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>ChemNamer &copy; 2026 — <span>118 elementos</span> · Stock · Sistemática · Tradicional</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

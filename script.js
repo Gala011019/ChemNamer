@@ -125,34 +125,99 @@ const elementos = {
 };
 
 /* ---- Nomenclatura Tradicional --------------------------------
-   Reglas: solo 2 estados de oxidación → oso/ico
-           3 estados → oso/ico  (los más comunes bajos/altos)
-           sufijos radicales en latín para elementos clásicos
+   Reglas:
+   · Un solo estado de oxidación → nombre fijo sin sufijo oso/ico
+   · Dos estados → menor: -oso / mayor: -ico
+   · Más de dos estados → oso/ico para los dos más comunes;
+     los intermedios llevan nombre descriptivo
+   · No metales → "anhídrido" en lugar de "óxido"
+   · Raíces latinas para elementos clásicos
    --------------------------------------------------------------- */
 const tradicionales = {
-  Fe: { 2:"Óxido ferroso",      3:"Óxido férrico" },
-  Cu: { 1:"Óxido cuproso",      2:"Óxido cúprico" },
-  Au: { 1:"Óxido auroso",       3:"Óxido áurico" },
-  Sn: { 2:"Óxido estañoso",     4:"Óxido estánico" },
-  Pb: { 2:"Óxido plumboso",     4:"Óxido plúmbico" },
-  Hg: { 1:"Óxido mercurioso",   2:"Óxido mercúrico" },
-  Co: { 2:"Óxido cobaltoso",    3:"Óxido cobáltico" },
-  Ni: { 2:"Óxido niqueloso",    3:"Óxido niquélico" },
-  Cr: { 2:"Óxido cromoso",      3:"Óxido crómico",  6:"Óxido crómico (VI)" },
-  Mn: { 2:"Óxido manganoso",    3:"Óxido mangánico", 4:"Óxido manganésico", 7:"Óxido permangánico" },
-  Ti: { 2:"Óxido titanoso",     3:"Óxido titánico",  4:"Óxido titánico (IV)" },
-  Tl: { 1:"Óxido talioso",      3:"Óxido tálico" },
-  V:  { 2:"Óxido vanadioso",    3:"Óxido vanádico",  4:"Óxido vanádico (IV)", 5:"Óxido vanádico (V)" },
-  Pt: { 2:"Óxido platinoso",    4:"Óxido platínico" },
-  Pd: { 2:"Óxido paladioso",    4:"Óxido paládico" },
-  Bi: { 3:"Óxido bismutoso",    5:"Óxido bismútico" },
-  Sb: { 3:"Óxido antimonioso",  5:"Óxido antimónico" },
-  As: { 3:"Óxido arsenioso",    5:"Óxido arsénico" },
-  Mo: { 3:"Óxido molibdenoso",  4:"Óxido molibdénico", 6:"Óxido molibdénico (VI)" },
-  W:  { 4:"Óxido wolframioso",  6:"Óxido wolfrámico" },
-  Ag: { 1:"Óxido argéntico" },
+  // Metales alcalinos (un solo estado)
+  Li: { 1:"Óxido de litio" },
+  Na: { 1:"Óxido sódico" },
+  K:  { 1:"Óxido potásico" },
+  Rb: { 1:"Óxido de rubidio" },
+  Cs: { 1:"Óxido de cesio" },
+  Fr: { 1:"Óxido de francio" },
+
+  // Alcalinotérreos (un solo estado)
+  Be: { 2:"Óxido de berilio" },
+  Mg: { 2:"Óxido magnésico" },
+  Ca: { 2:"Óxido cálcico" },
+  Sr: { 2:"Óxido estróntico" },
+  Ba: { 2:"Óxido bárico" },
+  Ra: { 2:"Óxido de radio" },
+
+  // Metales con un estado
+  Al: { 3:"Óxido alumínico" },
+  Sc: { 3:"Óxido de escandio" },
   Zn: { 2:"Óxido zíncico" },
-  Cd: { 2:"Óxido cadmioso" }
+  Ag: { 1:"Óxido argéntico" },
+  Cd: { 2:"Óxido cádmico" },
+  Ga: { 3:"Óxido de galio" },
+  In: { 3:"Óxido de indio" },
+  Y:  { 3:"Óxido de itrio" },
+  Zr: { 4:"Óxido de circonio" },
+  Hf: { 4:"Óxido de hafnio" },
+  Ta: { 5:"Óxido de tántalo" },
+  Rh: { 3:"Óxido de rodio" },
+
+  // Metales con dos estados → oso / ico
+  Fe: { 2:"Óxido ferroso",        3:"Óxido férrico" },
+  Cu: { 1:"Óxido cuproso",        2:"Óxido cúprico" },
+  Au: { 1:"Óxido auroso",         3:"Óxido áurico" },
+  Sn: { 2:"Óxido estañoso",       4:"Óxido estánico" },
+  Pb: { 2:"Óxido plumboso",       4:"Óxido plúmbico" },
+  Hg: { 1:"Óxido mercurioso",     2:"Óxido mercúrico" },
+  Co: { 2:"Óxido cobaltoso",      3:"Óxido cobáltico" },
+  Ni: { 2:"Óxido niqueloso",      3:"Óxido niquélico" },
+  Tl: { 1:"Óxido talioso",        3:"Óxido tálico" },
+  Pt: { 2:"Óxido platinoso",      4:"Óxido platínico" },
+  Pd: { 2:"Óxido paladioso",      4:"Óxido paládico" },
+  Bi: { 3:"Óxido bismutoso",      5:"Óxido bismútico" },
+  Ge: { 2:"Óxido germanioso",     4:"Óxido germánico" },
+  Os: { 3:"Óxido osmioso",        4:"Óxido ósmico" },
+  Ir: { 3:"Óxido irídioso",       4:"Óxido irídico" },
+  Ru: { 3:"Óxido rutenioso",      4:"Óxido ruténico" },
+  Eu: { 2:"Óxido europioso",      3:"Óxido európico" },
+  Sm: { 2:"Óxido samarioso",      3:"Óxido samárico" },
+  Yb: { 2:"Óxido iterbioso",      3:"Óxido itérbico" },
+
+  // Metales con tres o más estados
+  Cr: { 2:"Óxido cromoso",        3:"Óxido crómico",       6:"Óxido crómico superior" },
+  Mn: { 2:"Óxido manganoso",      3:"Óxido mangánico",     4:"Óxido manganésico",      6:"Óxido permangánico inferior", 7:"Óxido permangánico" },
+  Ti: { 2:"Óxido titanoso",       3:"Óxido titánico inferior", 4:"Óxido titánico" },
+  V:  { 2:"Óxido vanadioso",      3:"Óxido vanádico inferior", 4:"Óxido vanádico",     5:"Óxido vanádico superior" },
+  Mo: { 3:"Óxido molibdenoso",    4:"Óxido molibdénico",   6:"Óxido molibdénico superior" },
+  W:  { 4:"Óxido wolframioso",    6:"Óxido wolfrámico" },
+  Re: { 4:"Óxido renioso",        6:"Óxido rénico inferior", 7:"Óxido rénico" },
+  Sb: { 3:"Óxido antimonioso",    5:"Óxido antimónico" },
+  As: { 3:"Óxido arsenioso",      5:"Óxido arsénico" },
+  Nb: { 3:"Óxido niobioso",       5:"Óxido nióbico" },
+
+  // No metales → anhídridos
+  // (el nombre "Anhídrido" reemplaza a "Óxido" en la nomenclatura tradicional)
+  N:  { 1:"Anhídrido hiponitroso", 2:"Anhídrido nitroso",   3:"Anhídrido nitroso",     4:"Anhídrido nítrico inferior", 5:"Anhídrido nítrico" },
+  S:  { 2:"Anhídrido sulfuroso inferior", 4:"Anhídrido sulfuroso", 6:"Anhídrido sulfúrico" },
+  P:  { 3:"Anhídrido fosforoso",   5:"Anhídrido fosfórico" },
+  C:  { 2:"Anhídrido carbonoso",   4:"Anhídrido carbónico" },
+  Cl: { 1:"Anhídrido hipocloroso", 3:"Anhídrido cloroso",   5:"Anhídrido clórico",     7:"Anhídrido perclórico" },
+  Br: { 1:"Anhídrido hipobromoso", 3:"Anhídrido bromoso",   5:"Anhídrido brórmico",    7:"Anhídrido perbrórmico" },
+  I:  { 1:"Anhídrido hipoyodoso",  3:"Anhídrido yodoso",    5:"Anhídrido yódico",      7:"Anhídrido peryódico" },
+  Si: { 4:"Anhídrido silícico" },
+  Se: { 2:"Anhídrido selenioso inferior", 4:"Anhídrido selenioso", 6:"Anhídrido selénico" },
+  Te: { 2:"Anhídrido telurioso inferior", 4:"Anhídrido telurioso", 6:"Anhídrido telúrico" },
+  F:  { 1:"Anhídrido fluoroso" },
+
+  // Lantánidos y actínidos comunes
+  Ce: { 3:"Óxido ceroso",         4:"Óxido cérico" },
+  U:  { 3:"Óxido uranioso",       4:"Óxido uránico",       6:"Óxido uránico superior" },
+  Np: { 3:"Óxido neptunioso",     4:"Óxido neptúnico",     5:"Óxido neptúnico superior" },
+  Pu: { 3:"Óxido plutonioso",     4:"Óxido plutónico" },
+  Th: { 4:"Óxido tórico" },
+  Pa: { 5:"Óxido protactínico" },
 };
 
 const prefijos = { 1:"mono",2:"di",3:"tri",4:"tetra",5:"penta",6:"hexa",7:"hepta",8:"octa",9:"nona",10:"deca" };
@@ -177,14 +242,85 @@ function generarOxido(sim, estado){
   return { formula, subEl, subOx };
 }
 
+const romanos = { 1:"I", 2:"II", 3:"III", 4:"IV", 5:"V", 6:"VI", 7:"VII", 8:"VIII" };
+
 function nomStock(nombre, estado){
-  return `Óxido de ${nombre.toLowerCase()} (${estado})`;
+  return `Óxido de ${nombre.toLowerCase()} (${romanos[estado] || estado})`;
 }
 
 function nomSistematica(nombre, subEl, subOx){
   const pOx  = prefijos[subOx] + "óxido";
   const pEl  = subEl > 1 ? prefijos[subEl] + nombre.toLowerCase() : nombre.toLowerCase();
   return `${pOx} de ${pEl}`;
+}
+
+/* ================================================================
+   FORMACIÓN DEL ÓXIDO — visualización paso a paso
+   Solo usa clases CSS existentes
+   ================================================================ */
+function generarFormacion(sim, estado, ox){
+  const subEl = ox.subEl;
+  const subOx = ox.subOx;
+
+  // Paso 1: iones
+  let ionesEl = "";
+  for(let i = 0; i < subEl; i++)
+    ionesEl += `<span class="info-valor" style="display:inline-block;margin-right:6px;padding:2px 8px;border:1px solid var(--teal);border-radius:6px;font-size:0.8rem">${sim}<sup style="color:var(--menta);font-size:0.65rem">+${estado}</sup></span>`;
+
+  let ionesOx = "";
+  for(let i = 0; i < subOx; i++)
+    ionesOx += `<span class="info-valor" style="display:inline-block;margin-right:6px;padding:2px 8px;border:1px solid var(--purpura);border-radius:6px;font-size:0.8rem">O<sup style="color:var(--rosa);font-size:0.65rem">−2</sup></span>`;
+
+  // Paso 2: regla de la cruz
+  const cruzEl = subEl === 1 ? "(1 → se omite)" : subEl;
+  const cruzOx = subOx === 1 ? "(1 → se omite)" : subOx;
+
+  // Paso 3: balance
+  const totPos = subEl * estado;
+  const totNeg = subOx * 2;
+  const balColor = totPos === totNeg ? "var(--menta)" : "#f59e0b";
+  const balTxt   = totPos === totNeg
+    ? `✓ Carga total = 0  (${totPos}+ y ${totNeg}−)`
+    : `⚠ ${totPos}+ / ${totNeg}−`;
+
+  return `
+  <div style="border-top:1px solid var(--borde);margin-top:4px;padding-top:12px;display:flex;flex-direction:column;gap:10px">
+
+    <span class="info-label">⚗ Cómo se forma</span>
+
+    <div class="nom-fila" style="flex-direction:column;gap:4px">
+      <span class="nom-tipo stock-tipo">Paso 1 · Iones</span>
+      <span class="nom-texto" style="display:flex;flex-wrap:wrap;align-items:center;gap:4px">
+        ${ionesEl}
+        <span style="color:var(--texto-sec);margin:0 2px">+</span>
+        ${ionesOx}
+      </span>
+    </div>
+
+    <div class="nom-fila" style="flex-direction:column;gap:4px">
+      <span class="nom-tipo sist-tipo">Paso 2 · Regla de la cruz</span>
+      <span class="nom-texto">
+        <span style="color:var(--texto-sec);font-family:var(--font-mono);font-size:0.78rem">
+          ${sim}<sup style="color:var(--menta)">+${estado}</sup>
+          &nbsp;×&nbsp;
+          O<sup style="color:var(--rosa)">−2</sup>
+          &nbsp;→&nbsp;
+          subíndice de <strong style="color:var(--menta)">${sim}</strong> = <span style="color:var(--menta)">${cruzOx}</span>
+          &nbsp;·&nbsp;
+          subíndice de <strong style="color:var(--rosa)">O</strong> = <span style="color:var(--rosa)">${cruzEl}</span>
+        </span>
+      </span>
+    </div>
+
+    <div class="explicacion">
+      <span>${sim} = +${estado}</span>
+      <span>O = −2</span>
+      <span>${sim}: ${subEl} átomo${subEl>1?"s":""} → carga ${subEl*estado}+</span>
+      <span>O: ${subOx} átomo${subOx>1?"s":""} → carga ${subOx*2}−</span>
+      <span style="color:${balColor}">${balTxt}</span>
+    </div>
+
+  </div>`;
 }
 
 /* ================================================================
@@ -336,11 +472,7 @@ document.querySelectorAll(".elemento").forEach(btn => {
                 <span class="nom-texto">${trad || '<em>No disponible</em>'}</span>
               </div>
             </div>
-            <div class="explicacion">
-              <span>O = −2</span>
-              <span>${sim} = +${estado}</span>
-              <span>Fórmula: ${ox.formula}</span>
-            </div>
+            ${generarFormacion(sim, estado, ox)}
           </div>`;
       });
     }
